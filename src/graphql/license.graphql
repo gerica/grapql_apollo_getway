@@ -1,0 +1,40 @@
+type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+input MessageInput {
+  content: String
+  author: String
+}
+
+type MessageService {
+  getMessage: Message
+  createMessage: Message
+  updateMessage: Message
+  toString: String
+}
+
+type Mutation {
+  messageServiceCreate(input: MessageInput): MessageService
+  messageServiceUpdate(id: ID!, input: MessageInput): MessageService
+}
+
+type Query {
+  messageService(id: ID!): MessageService
+  getDie(numSides: Int): RandomDie
+  info: String
+  showMessage: String
+  showMessage2: String
+  showNome(nome: String!): String
+  test: String
+  ip: String
+}
+
+type RandomDie {
+  numSides: Int!
+  rollOnce: Int!
+  toString: String!
+  roll(numRolls: Int!): [Int]
+}
