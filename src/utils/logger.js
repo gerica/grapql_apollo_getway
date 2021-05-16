@@ -28,18 +28,6 @@ const loggerConfig = pkg({
     req: pino.stdSerializers.req,
     res: pino.stdSerializers.res,
   },
-  //   serializers: {
-  // res: pino.stdSerializers.res,
-  // req(req) {
-  //   req.body = req.raw.body;
-  //   return req.body;
-  // },
-  // req(req) {
-  //   return {
-  //     message: req.foo,
-  //   };
-  // },
-  //   },
 
   // Set to `false` to prevent standard serializers from being wrapped.
   wrapSerializers: true,
