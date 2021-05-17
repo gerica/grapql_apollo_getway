@@ -56,11 +56,10 @@ type Mutation {
 }
 
 type Query {
-  current: User @join__field(graph: AUTH)
   beer(id: Int!): Beer @join__field(graph: AUTH)
   beers(brand: String!): [Beer] @join__field(graph: AUTH)
   allUsers: [User] @join__field(graph: AUTH)
-  fieldName(strt: String): String @join__field(graph: AUTH)
+  fieldName(login: String): User @join__field(graph: AUTH)
   messageService(id: ID!): MessageService @join__field(graph: LICENSE)
   getDie(numSides: Int): RandomDie @join__field(graph: LICENSE)
   info: String @join__field(graph: LICENSE)
@@ -79,8 +78,8 @@ type RandomDie {
 }
 
 type User {
-  id: Int!
-  login: String!
+  id: String
+  login: String
 }
 
 input UserInput {
