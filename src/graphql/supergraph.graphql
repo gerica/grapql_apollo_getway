@@ -19,7 +19,7 @@ scalar join__FieldSet
 
 enum join__Graph {
   APILOCAL @join__graph(name: "apiLocal" url: "http://localhost:4001/")
-  AUTH @join__graph(name: "auth" url: "http://localhost:4002/")
+  AUTH @join__graph(name: "auth" url: "http://ip-172-31-18-186.us-east-2.compute.internal:4002/")
 }
 
 type Query {
