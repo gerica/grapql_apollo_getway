@@ -3,7 +3,6 @@ schema
   @core(feature: "https://specs.apollo.dev/join/v0.1")
 {
   query: Query
-  mutation: Mutation
 }
 
 directive @core(feature: String!) repeatable on SCHEMA
@@ -16,13 +15,6 @@ directive @join__owner(graph: join__Graph!) on OBJECT | INTERFACE
 
 directive @join__graph(name: String!, url: String!) on ENUM_VALUE
 
-type Beer {
-  id: Int!
-  name: String!
-  brand: String
-  price: Float
-}
-
 scalar join__FieldSet
 
 enum join__Graph {
@@ -30,26 +22,7 @@ enum join__Graph {
   AUTH @join__graph(name: "auth" url: "http://localhost:4002/")
 }
 
-type Mutation {
-  register(input: UserInput): String @join__field(graph: AUTH)
-  login(input: UserInput): String @join__field(graph: AUTH)
-}
-
 type Query {
   apiGetwayVersion: String @join__field(graph: APILOCAL)
   infoAuth: String @join__field(graph: AUTH)
-  beer(id: Int!): Beer @join__field(graph: AUTH)
-  beers(brand: String!): [Beer] @join__field(graph: AUTH)
-  allUsers: [User] @join__field(graph: AUTH)
-  fieldName(login: String): User @join__field(graph: AUTH)
-}
-
-type User {
-  id: String
-  login: String
-}
-
-input UserInput {
-  login: String
-  password: String
 }
