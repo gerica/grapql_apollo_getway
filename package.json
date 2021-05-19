@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "node src/server.js & node src/serverLocal.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@apollo/federation": "^0.25.0",
     "@apollo/gateway": "^0.28.1",
     "apollo-server": "^2.24.0",
     "bcrypt": "^5.0.1",

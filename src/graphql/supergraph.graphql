@@ -26,55 +26,22 @@ type Beer {
 scalar join__FieldSet
 
 enum join__Graph {
+  APILOCAL @join__graph(name: "apiLocal" url: "http://localhost:4001/")
   AUTH @join__graph(name: "auth" url: "http://localhost:4002/")
-  LICENSE @join__graph(name: "license" url: "http://localhost:4001/")
-}
-
-type Message {
-  id: ID!
-  content: String
-  author: String
-}
-
-input MessageInput {
-  content: String
-  author: String
-}
-
-type MessageService {
-  getMessage: Message
-  createMessage: Message
-  updateMessage: Message
-  toString: String
 }
 
 type Mutation {
   register(input: UserInput): String @join__field(graph: AUTH)
   login(input: UserInput): String @join__field(graph: AUTH)
-  messageServiceCreate(input: MessageInput): MessageService @join__field(graph: LICENSE)
-  messageServiceUpdate(id: ID!, input: MessageInput): MessageService @join__field(graph: LICENSE)
 }
 
 type Query {
+  apiGetwayVersion: String @join__field(graph: APILOCAL)
+  infoAuth: String @join__field(graph: AUTH)
   beer(id: Int!): Beer @join__field(graph: AUTH)
   beers(brand: String!): [Beer] @join__field(graph: AUTH)
   allUsers: [User] @join__field(graph: AUTH)
   fieldName(login: String): User @join__field(graph: AUTH)
-  messageService(id: ID!): MessageService @join__field(graph: LICENSE)
-  getDie(numSides: Int): RandomDie @join__field(graph: LICENSE)
-  info: String @join__field(graph: LICENSE)
-  showMessage: String @join__field(graph: LICENSE)
-  showMessage2: String @join__field(graph: LICENSE)
-  showNome(nome: String!): String @join__field(graph: LICENSE)
-  test: String @join__field(graph: LICENSE)
-  ip: String @join__field(graph: LICENSE)
-}
-
-type RandomDie {
-  numSides: Int!
-  rollOnce: Int!
-  toString: String!
-  roll(numRolls: Int!): [Int]
 }
 
 type User {

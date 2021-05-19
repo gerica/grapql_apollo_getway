@@ -2,6 +2,7 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
 import { readFileSync } from 'fs';
+
 import config from './config/config.js';
 import logger from './utils/logger.js';
 

@@ -1,9 +1,9 @@
 subgraphs:
+  apiLocal:
+    routing_url: http://localhost:4001/
+    schema:
+      file: ./api.graphql
   auth:
     routing_url: http://localhost:4002/
     schema:
       file: ./auth.graphql
-  license:
-    routing_url: http://localhost:4001/
-    schema:
-      file: ./license.graphql
