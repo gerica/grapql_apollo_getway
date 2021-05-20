@@ -12,7 +12,7 @@ module.exports = {
       key: '~/Projetos/radiolife/Radiolife-us-east-2-dp.pem',
       ref: 'origin/main',
       repo: 'git@github.com:gerica/grapql_apollo_getway.git',
-      path: '/home/ubuntu/graphql',
+      path: '/home/ubuntu/projects/graphql',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js',
     },
   },
