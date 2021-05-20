@@ -2,15 +2,16 @@
   "name": "Api Getway",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js & node src/serverLocal.js"
+    "start": "node src/server.js & node src/serverLocal.js",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
   "dependencies": {
     "@apollo/federation": "^0.25.0",
     "@apollo/gateway": "^0.28.1",

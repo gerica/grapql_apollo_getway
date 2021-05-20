@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'RadiolifeGateway',
-      script: './startInEc2.sh',
+      script: './src/server.js',
     },
   ],
   deploy: {
