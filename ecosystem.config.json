@@ -11,7 +11,7 @@
       "host": ["ec2-3-128-171-86.us-east-2.compute.amazonaws.com"],
       "ref": "origin/main",
       "repo": "git@github.com:gerica/grapql_apollo_getway.git",
-      "path": "/home/ubuntu/projects/",
+      "path": "/home/ubuntu/projects/graphql",
       "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js"
     }
   }
