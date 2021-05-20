@@ -12,7 +12,7 @@
       "ref": "origin/main",
       "repo": "git@github.com:gerica/grapql_apollo_getway.git",
       "path": "/home/ubuntu/projects/graphql",
-      "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js"
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.json"
     }
   }
 }
