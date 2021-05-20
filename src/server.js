@@ -9,7 +9,7 @@ import logger from './utils/logger.js';
 const { PORT, PATH_GRAPHQL } = config;
 
 // const supergraphSchema = readFileSync(`${process.cwd()}/src/graphql/supergraph.graphql`).toString();
-const supergraphSchema = readFileSync('./src/graphql/supergraph.graphql').toString();
+const supergraphSchema = readFileSync(`${process.cwd()}/src/graphql/supergraph.graphql`).toString();
 
 const gateway = new ApolloGateway({
   supergraphSdl: supergraphSchema,
