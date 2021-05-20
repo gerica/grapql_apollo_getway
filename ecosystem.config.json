@@ -2,7 +2,8 @@
   "apps": [
     {
       "name": "RadiolifeGateway",
-      "script": "npm start"
+      "script": "npm",
+      "args": "start"
     }
   ],
   "deploy": {
