@@ -1,5 +1,10 @@
+import logger from '../../../utils/logger.js';
+
 export default {
   Query: {
-    apiGetwayVersion: () => 'Version Radiolife gateway: 0.0.1-rc-02',
+    apiGetwayVersion: () => {
+      logger.info('api gateway info');
+      return 'Version Radiolife gateway: 0.0.1-rc-03';
+    },
   },
 };
