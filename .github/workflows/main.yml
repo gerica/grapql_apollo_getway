@@ -15,4 +15,4 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          script: sudo sh /home/ubuntu/projects/graphql/current/deploy.sh
+          script: sh /home/ubuntu/projects/graphql/current/deploy.sh
