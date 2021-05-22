@@ -27,3 +27,7 @@ rover supergraph compose --config ./src/graphql/supergraph-config.yaml > ./src/g
 https://www.apollographql.com/docs/federation/
 
 ...
+
+# Connect to aws ec2
+
+ssh -i "Radiolife-us-east-2-dp.pem" ubuntu@ec2-3-128-171-86.us-east-2.compute.amazonaws.com
