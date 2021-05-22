@@ -3,13 +3,23 @@
     {
       "name": "RadiolifeGateway",
       "script": "npm",
-      "args": "start"
+      "args": "start",
+      "out_file": "/home/ubuntu/hooker.out.log",
+      "err_file": "/home/ubuntu/hooker.err.log"
     }
   ],
   "deploy": {
     "production": {
       "user": "ubuntu",
       "host": ["ec2-3-128-171-86.us-east-2.compute.amazonaws.com"],
+      "ref": "origin/main",
+      "repo": "git@github.com:gerica/grapql_apollo_getway.git",
+      "path": "/home/ubuntu/projects/graphql",
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.json"
+    },
+    "production-local": {
+      "user": "ubuntu",
+      "host": ["localhost"],
       "ref": "origin/main",
       "repo": "git@github.com:gerica/grapql_apollo_getway.git",
       "path": "/home/ubuntu/projects/graphql",
