@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js & node src/serverLocal.js",
     "pm2-start": "pm2 startOrRestart pm2.config.json --watch",
-    "pm2-stop": "pm2 stop Gateway",
+    "pm2-stop": "pm2 stop RadiolifeGateway",
     "see-logs": "pm2 logs",
     "restart-production": "pm2 startOrRestart ecosystem.config.json",
     "deploy-production": "pm2 deploy ecosystem.config.json production",

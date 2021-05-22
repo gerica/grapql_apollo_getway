@@ -4,6 +4,7 @@ subgraphs:
     schema:
       file: ./api.graphql
   auth:
-    routing_url: http://ip-172-31-18-186.us-east-2.compute.internal:4002/
+    routing_url: http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4002/
+    # routing_url: http://localhost:4002/
     schema:
       file: ./auth.graphql
