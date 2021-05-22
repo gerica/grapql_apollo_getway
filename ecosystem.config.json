@@ -4,8 +4,8 @@
       "name": "RadiolifeGateway",
       "script": "npm",
       "args": "start",
-      "out_file": "/home/ubuntu/hooker.out.log",
-      "err_file": "/home/ubuntu/hooker.err.log"
+      "out_file": "/home/ubuntu/projects/hooker.out.log",
+      "err_file": "/home/ubuntu/projects/hooker.err.log"
     }
   ],
   "deploy": {
