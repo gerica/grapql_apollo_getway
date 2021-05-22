@@ -5,4 +5,4 @@ echo "Jump to app folder"
 cd /projects/graphql/current
 
 echo "Run new PM2 action"
-sudo pm2 start /projects/graphql/current/ecosystem.config.json
+npm run deploy-local-ec2
