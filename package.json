@@ -11,6 +11,7 @@
     "see-logs": "pm2 logs",
     "restart-production": "pm2 startOrRestart ecosystem.config.json",
     "deploy-production": "pm2 deploy ecosystem.config.json production",
+    "deploy-production-setup": "pm2 deploy ecosystem.config.json production setup",
     "deploy-local-ec2": "pm2 deploy ecosystem.config.json production-local",
     "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/auth.graphql",
     "rover-compose": "rover supergraph compose --config ./src/graphql/supergraph-config.yaml > ./src/graphql/supergraph.graphql"
