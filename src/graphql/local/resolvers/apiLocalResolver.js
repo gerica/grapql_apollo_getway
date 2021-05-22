@@ -4,7 +4,7 @@ export default {
   Query: {
     apiGetwayVersion: () => {
       logger.info('api gateway info');
-      return 'Version Radiolife gateway: 0.0.1-rc-01';
+      return 'Version Radiolife gateway: 0.0.1-rc-02';
     },
   },
 };
