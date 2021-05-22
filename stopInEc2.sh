@@ -1,2 +1,0 @@
-pm2 stop RadiolifeGateway
-pm2 stop RadiolifeGatewayLocal
