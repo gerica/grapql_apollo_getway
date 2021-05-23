@@ -1,6 +1,6 @@
 subgraphs:
   API_SERVICE_AUTH:
-    routing_url: 'http://localhost:4002/graphql'
+    routing_url: 'http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4002/'
     schema:
       file: ./graphql/API_SERVICE_AUTH.graphql
   API_SERVICE_LOCAL:
