@@ -13,8 +13,9 @@
     "deploy-production": "pm2 deploy ecosystem.config.json production",
     "deploy-production-setup": "pm2 deploy ecosystem.config.json production setup",
     "deploy-local-ec2": "pm2 deploy ecosystem.config.json production-local",
-    "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/auth.graphql",
-    "rover-compose": "rover supergraph compose --config ./src/graphql/supergraph-config.yaml > ./src/graphql/supergraph.graphql"
+    "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/API_SERVICE_AUTH.graphql",
+    "pre-compose": "node src/preRoverCompose.js",
+    "rover-compose": "npm run pre-compose && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +27,11 @@
     "apollo-server": "^2.24.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^9.0.1",
+    "fs": "*",
     "graphql": "^15.5.0",
     "graphql-config": "^3.2.0",
     "graphql-import": "^1.0.2",
+    "js-yaml": "^3.14.1",
     "jsonwebtoken": "^8.5.1",
     "pino": "^6.11.3",
     "pino-http": "^5.5.0"
