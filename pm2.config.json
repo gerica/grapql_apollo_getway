@@ -3,7 +3,7 @@
     {
       "name": "RadiolifeGateway",
       "script": "npm",
-      "args": "start",
+      "args": "start production",
       "watch_delay": 1000
     }
   ]

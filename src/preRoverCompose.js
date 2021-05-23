@@ -5,10 +5,12 @@ import logger from './utils/logger.js';
 
 logger.info('***************** Init Config supergraph ******************');
 logger.info('Configure supergraph-config.yaml');
+
 const file = './src/supergraph-config.yaml';
 const dirGraphql = './src/graphql';
-
 const filesGraphql = [];
+const nameGraphql = '.graphql';
+
 function createConfig() {
   logger.info('create config method');
   const objToWrite = {
@@ -17,7 +19,7 @@ function createConfig() {
 
   if (filesGraphql.length > 0) {
     filesGraphql.forEach((graphql) => {
-      const index = graphql.indexOf('.graphql');
+      const index = graphql.indexOf(nameGraphql);
       const nameService = graphql.slice(0, index);
       objToWrite.subgraphs[nameService] = {
         routing_url: config[nameService],
@@ -25,8 +27,6 @@ function createConfig() {
       };
     });
   }
-
-  logger.info(objToWrite);
 
   try {
     const yamlStr = yaml.safeDump(objToWrite);
@@ -45,7 +45,7 @@ fs.readdir(dirGraphql, (err, filenames) => {
   }
 
   filenames.forEach((f) => {
-    if (f.includes('.graphql')) {
+    if (f.includes(nameGraphql)) {
       filesGraphql.push(f);
     }
   });
