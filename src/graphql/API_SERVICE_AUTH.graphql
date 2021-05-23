@@ -1,29 +1,3 @@
-type Beer {
-  id: Int!
-  name: String!
-  brand: String
-  price: Float
-}
-
-type Mutation {
-  register(input: UserInput): String
-  login(input: UserInput): String
-}
-
 type Query {
   versionAuth: String
-  beer(id: Int!): Beer
-  beers(brand: String!): [Beer]
-  allUsers: [User]
-  fieldName(login: String): User
-}
-
-type User {
-  id: String
-  login: String
-}
-
-input UserInput {
-  login: String
-  password: String
 }
