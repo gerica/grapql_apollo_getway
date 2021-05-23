@@ -16,7 +16,9 @@
     "deploy-local-ec2": "pm2 deploy ecosystem.config.json production-local",
     "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/API_SERVICE_AUTH.graphql",
     "pre-compose": "node src/preRoverCompose.js",
-    "rover-compose": "npm run pre-compose && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql"
+    "rover-compose": "npm run pre-compose && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql",
+    "pre-compose-prod": "NODE_ENV=production node src/preRoverCompose.js",
+    "rover-compose-prod": "npm run pre-compose-prod && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql"
   },
   "keywords": [],
   "author": "",
