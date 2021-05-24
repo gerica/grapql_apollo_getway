@@ -3,6 +3,7 @@ schema
   @core(feature: "https://specs.apollo.dev/join/v0.1")
 {
   query: Query
+  mutation: Mutation
 }
 
 directive @core(feature: String!) repeatable on SCHEMA
@@ -19,10 +20,78 @@ scalar join__FieldSet
 
 enum join__Graph {
   API_SERVICE_AUTH @join__graph(name: "API_SERVICE_AUTH" url: "http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4002/")
+  API_SERVICE_LICENSE @join__graph(name: "API_SERVICE_LICENSE" url: "http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com:4003/")
   API_SERVICE_LOCAL @join__graph(name: "API_SERVICE_LOCAL" url: "http://localhost:4001/")
+}
+
+type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+input MessageInput {
+  content: String
+  author: String
+}
+
+"""Service de mensagens"""
+type MessageService {
+  """Obter uma mensagem"""
+  getMessage: Message
+
+  """Cria uma nova mensagem"""
+  createMessage: Message
+
+  """Atualiza uma mensagem"""
+  updateMessage: Message
+
+  """Informação da classe"""
+  toString: String
+}
+
+type Mutation {
+  """
+  ### Criar uma nova mensagem
+  #### Exemplo
+  ```javascript
+        mutation {
+        messageServiceCreate(input: {author: "Roger", content: "lorem"}) {
+          createMessage {
+            id
+            content
+            author
+          }
+        }
+      }
+  ```
+  """
+  messageServiceCreate(input: MessageInput): MessageService @join__field(graph: API_SERVICE_LICENSE)
+  messageServiceUpdate(id: ID!, input: MessageInput): MessageService @join__field(graph: API_SERVICE_LICENSE)
 }
 
 type Query {
   versionAuth: String @join__field(graph: API_SERVICE_AUTH)
+  messageService(id: ID!): MessageService @join__field(graph: API_SERVICE_LICENSE)
+  getDie(numSides: Int): RandomDie @join__field(graph: API_SERVICE_LICENSE)
+
+  """#### Version service"""
+  versionLicense: String @join__field(graph: API_SERVICE_LICENSE)
+  showMessage: String @join__field(graph: API_SERVICE_LICENSE)
+  showMessage2: String @join__field(graph: API_SERVICE_LICENSE)
+  showNome(nome: String!): String @join__field(graph: API_SERVICE_LICENSE)
+
+  """#### Informação de exemplo"""
+  test: String @join__field(graph: API_SERVICE_LICENSE)
+
+  """### Obter o ip do request"""
+  ip: String @join__field(graph: API_SERVICE_LICENSE)
   apiGetwayVersion: String @join__field(graph: API_SERVICE_LOCAL)
+}
+
+type RandomDie {
+  numSides: Int!
+  rollOnce: Int!
+  toString: String!
+  roll(numRolls: Int!): [Int]
 }

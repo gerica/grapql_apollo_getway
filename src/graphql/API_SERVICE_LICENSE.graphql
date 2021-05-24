@@ -1,0 +1,69 @@
+type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+input MessageInput {
+  content: String
+  author: String
+}
+
+"""Service de mensagens"""
+type MessageService {
+  """Obter uma mensagem"""
+  getMessage: Message
+
+  """Cria uma nova mensagem"""
+  createMessage: Message
+
+  """Atualiza uma mensagem"""
+  updateMessage: Message
+
+  """Informação da classe"""
+  toString: String
+}
+
+type Mutation {
+  """
+  ### Criar uma nova mensagem
+  #### Exemplo
+  ```javascript
+        mutation {
+        messageServiceCreate(input: {author: "Roger", content: "lorem"}) {
+          createMessage {
+            id
+            content
+            author
+          }
+        }
+      }
+  ```
+  """
+  messageServiceCreate(input: MessageInput): MessageService
+  messageServiceUpdate(id: ID!, input: MessageInput): MessageService
+}
+
+type Query {
+  messageService(id: ID!): MessageService
+  getDie(numSides: Int): RandomDie
+
+  """#### Version service"""
+  versionLicense: String
+  showMessage: String
+  showMessage2: String
+  showNome(nome: String!): String
+
+  """#### Informação de exemplo"""
+  test: String
+
+  """### Obter o ip do request"""
+  ip: String
+}
+
+type RandomDie {
+  numSides: Int!
+  rollOnce: Int!
+  toString: String!
+  roll(numRolls: Int!): [Int]
+}
