@@ -1,10 +1,10 @@
 subgraphs:
   API_SERVICE_AUTH:
-    routing_url: 'http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4002/'
+    routing_url: 'http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4000/'
     schema:
       file: ./graphql/API_SERVICE_AUTH.graphql
   API_SERVICE_LICENSE:
-    routing_url: 'http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com:4003/'
+    routing_url: 'http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com:4000/'
     schema:
       file: ./graphql/API_SERVICE_LICENSE.graphql
   API_SERVICE_LOCAL:
