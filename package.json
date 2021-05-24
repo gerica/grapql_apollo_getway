@@ -12,13 +12,13 @@
     "pm2-list": "pm2 list",
     "restart-production": "pm2 startOrRestart ecosystem.config.json",
     "deploy-production": "pm2 deploy ecosystem.config.json production",
-    "deploy-production-setup": "pm2 deploy ecosystem.config.json production setup",
+    "deploy-production-setup": "pm2 deploy ecosystem.config.json production setup",    
     "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/API_SERVICE_AUTH.graphql",
     "rover-introspect-license": "rover subgraph introspect http://localhost:4003 > src/graphql/API_SERVICE_LICENSE.graphql",
-    "pre-compose": "node src/preRoverCompose.js",
     "rover-compose": "npm run pre-compose && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql",
-    "pre-compose-prod": "NODE_ENV=production node src/preRoverCompose.js",
-    "rover-compose-prod": "npm run pre-compose-prod && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql"
+    "rover-compose-prod": "npm run pre-compose-prod && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql",
+    "pre-compose": "node src/preRoverCompose.js",
+    "pre-compose-prod": "NODE_ENV=production node src/preRoverCompose.js"
   },
   "keywords": [],
   "author": "",
