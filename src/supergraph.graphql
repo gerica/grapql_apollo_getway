@@ -19,8 +19,8 @@ directive @join__graph(name: String!, url: String!) on ENUM_VALUE
 scalar join__FieldSet
 
 enum join__Graph {
-  API_SERVICE_AUTH @join__graph(name: "API_SERVICE_AUTH" url: "http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com:4000/")
-  API_SERVICE_LICENSE @join__graph(name: "API_SERVICE_LICENSE" url: "http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com:4000/")
+  API_SERVICE_AUTH @join__graph(name: "API_SERVICE_AUTH" url: "http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com/")
+  API_SERVICE_LICENSE @join__graph(name: "API_SERVICE_LICENSE" url: "http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com/")
   API_SERVICE_LOCAL @join__graph(name: "API_SERVICE_LOCAL" url: "http://localhost:4001/")
 }
 
