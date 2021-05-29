@@ -16,6 +16,13 @@ directive @join__owner(graph: join__Graph!) on OBJECT | INTERFACE
 
 directive @join__graph(name: String!, url: String!) on ENUM_VALUE
 
+type Beer {
+  id: Int!
+  name: String!
+  brand: String
+  price: Float
+}
+
 scalar join__FieldSet
 
 enum join__Graph {
@@ -51,6 +58,9 @@ type MessageService {
 }
 
 type Mutation {
+  register(input: UserInput): String @join__field(graph: API_SERVICE_AUTH)
+  login(input: UserInput): String @join__field(graph: API_SERVICE_AUTH)
+
   """
   ### Criar uma nova mensagem
   #### Exemplo
@@ -72,6 +82,10 @@ type Mutation {
 
 type Query {
   versionAuth: String @join__field(graph: API_SERVICE_AUTH)
+  beer(id: Int!): Beer @join__field(graph: API_SERVICE_AUTH)
+  beers(brand: String!): [Beer] @join__field(graph: API_SERVICE_AUTH)
+  allUsers: [User] @join__field(graph: API_SERVICE_AUTH)
+  fieldName(login: String): User @join__field(graph: API_SERVICE_AUTH)
   messageService(id: ID!): MessageService @join__field(graph: API_SERVICE_LICENSE)
   getDie(numSides: Int): RandomDie @join__field(graph: API_SERVICE_LICENSE)
 
@@ -94,4 +108,14 @@ type RandomDie {
   rollOnce: Int!
   toString: String!
   roll(numRolls: Int!): [Int]
+}
+
+type User {
+  id: String
+  login: String
+}
+
+input UserInput {
+  login: String
+  password: String
 }
