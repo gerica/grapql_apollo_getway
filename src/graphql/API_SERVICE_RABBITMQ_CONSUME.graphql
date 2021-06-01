@@ -14,7 +14,10 @@ type Mutation {
 }
 
 type Query {
-  """# Resultado"""
+  """#### Versão do serviço de rabbitmq consumer"""
+  versionRabbitMQConsumer: String
+
+  """#### Resultado"""
   getMessage: ConsumerMessageResult
   getAllMessages: [ConsumerMessageResult]
 }

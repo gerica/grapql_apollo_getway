@@ -115,7 +115,10 @@ type Query {
   ip: String @join__field(graph: API_SERVICE_LICENSE)
   apiGetwayVersion: String @join__field(graph: API_SERVICE_LOCAL)
 
-  """# Resultado"""
+  """#### Versão do serviço de rabbitmq consumer"""
+  versionRabbitMQConsumer: String @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
+
+  """#### Resultado"""
   getMessage: ConsumerMessageResult @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
   getAllMessages: [ConsumerMessageResult] @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
 }
