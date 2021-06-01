@@ -11,3 +11,7 @@ subgraphs:
     routing_url: 'http://localhost:4001/'
     schema:
       file: ./graphql/API_SERVICE_LOCAL.graphql
+  API_SERVICE_RABBITMQ_CONSUME:
+    routing_url: 'http://ec2-18-219-122-41.us-east-2.compute.amazonaws.com/'
+    schema:
+      file: ./graphql/API_SERVICE_RABBITMQ_CONSUME.graphql

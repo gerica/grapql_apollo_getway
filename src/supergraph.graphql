@@ -23,12 +23,24 @@ type Beer {
   price: Float
 }
 
+"""Mensagem de entrada"""
+input ConsumerMessageInput {
+  msg: String
+}
+
+"""Message de resultado"""
+type ConsumerMessageResult {
+  id: String
+  message: String
+}
+
 scalar join__FieldSet
 
 enum join__Graph {
   API_SERVICE_AUTH @join__graph(name: "API_SERVICE_AUTH" url: "http://ec2-3-140-244-169.us-east-2.compute.amazonaws.com/")
   API_SERVICE_LICENSE @join__graph(name: "API_SERVICE_LICENSE" url: "http://ec2-18-116-30-81.us-east-2.compute.amazonaws.com/")
   API_SERVICE_LOCAL @join__graph(name: "API_SERVICE_LOCAL" url: "http://localhost:4001/")
+  API_SERVICE_RABBITMQ_CONSUME @join__graph(name: "API_SERVICE_RABBITMQ_CONSUME" url: "http://ec2-18-219-122-41.us-east-2.compute.amazonaws.com/")
 }
 
 type Message {
@@ -78,6 +90,7 @@ type Mutation {
   """
   messageServiceCreate(input: MessageInput): MessageService @join__field(graph: API_SERVICE_LICENSE)
   messageServiceUpdate(id: ID!, input: MessageInput): MessageService @join__field(graph: API_SERVICE_LICENSE)
+  sendMessage(input: ConsumerMessageInput): String @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
 }
 
 type Query {
@@ -101,6 +114,10 @@ type Query {
   """### Obter o ip do request"""
   ip: String @join__field(graph: API_SERVICE_LICENSE)
   apiGetwayVersion: String @join__field(graph: API_SERVICE_LOCAL)
+
+  """# Resultado"""
+  getMessage: ConsumerMessageResult @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
+  getAllMessages: [ConsumerMessageResult] @join__field(graph: API_SERVICE_RABBITMQ_CONSUME)
 }
 
 type RandomDie {

@@ -15,6 +15,7 @@
     "deploy-production-setup": "pm2 deploy ecosystem.config.json production setup",    
     "rover-introspect-auth": "rover subgraph introspect http://localhost:4002 > src/graphql/API_SERVICE_AUTH.graphql",
     "rover-introspect-license": "rover subgraph introspect http://localhost:4003 > src/graphql/API_SERVICE_LICENSE.graphql",
+    "rover-introspect-rabbimq-consumer": "rover subgraph introspect http://localhost:4004 > src/graphql/API_SERVICE_RABBITMQ_CONSUME.graphql",
     "rover-compose": "npm run pre-compose && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql",
     "rover-compose-prod": "npm run pre-compose-prod && rover supergraph compose --config ./src/supergraph-config.yaml > ./src/supergraph.graphql",
     "pre-compose": "node src/preRoverCompose.js",

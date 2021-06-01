@@ -1,0 +1,20 @@
+"""Mensagem de entrada"""
+input ConsumerMessageInput {
+  msg: String
+}
+
+"""Message de resultado"""
+type ConsumerMessageResult {
+  id: String
+  message: String
+}
+
+type Mutation {
+  sendMessage(input: ConsumerMessageInput): String
+}
+
+type Query {
+  """# Resultado"""
+  getMessage: ConsumerMessageResult
+  getAllMessages: [ConsumerMessageResult]
+}
